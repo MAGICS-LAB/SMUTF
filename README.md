@@ -1,8 +1,8 @@
 [![PyPI version](https://badge.fury.io/py/schema-matching.svg)](https://pypi.org/project/schema-matching/) 
 
-# Python Schema Matching by XGboost and Sentence-Transformers
+# Python Schema Matching by LightGBM and Sentence-Transformers
 
-A python tool using XGboost and sentence-transformers to perform schema matching task on tables. Support multi-language column names and instances matching and can be used without column names. Both csv and json file type are supported.
+A python tool using LightGBM and sentence-transformers to perform schema matching task on tables. Support multi-language column names and instances matching and can be used without column names. Both csv and json file type are supported.
 
 ## What is schema matching?
 
@@ -18,7 +18,7 @@ Schema matching is the problem of finding potential associations between element
 - nltk==3.6.5
 - python-dateutil==2.8.2
 - sentence-transformers==2.1.0
-- xgboost==1.5.2
+- lightgbm
 - strsimpy==0.2.1
 
 ## Package usage
@@ -124,14 +124,4 @@ Data: https://github.com/fireindark707/Schema_Matching_XGboost/tree/main/Test%20
 
 **F1 score: 0.889**
 
-## Cite
-```
-@software{fireinfark707_Schema_Matching_by_2022,  
-author = {fireinfark707},  
-license = {MIT},  
-month = {4},  
-title = {{Schema Matching by XGboost}},  
-url = {https://github.com/fireindark707/Schema_Matching_XGboost},  
-year = {2022}  
-}
-```
+
