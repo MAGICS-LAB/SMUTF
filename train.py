@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import xgboost as xgb
+import lightgbm as lgb
 import datetime
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import f1_score, precision_score, recall_score
@@ -23,8 +24,8 @@ params = {
     }
 
 def train(train_features,train_labels,num_round):
-    dtrain = xgb.DMatrix(train_features, label=train_labels)
-    bst = xgb.train(params, dtrain, num_round)
+    dtrain = lgb.Dataset(train_features, label=train_labels)
+    bst = lgb.train(params, dtrain, num_round)
     # get best_threshold
     best_f1 = 0
     best_threshold = 0
@@ -38,7 +39,7 @@ def train(train_features,train_labels,num_round):
     return bst,best_threshold
 
 def test(bst,best_threshold, test_features, test_labels, type="evaluation"):
-    dtest = xgb.DMatrix(test_features, label=test_labels)
+    dtest = lgb.Dataset(test_features, label=test_labels)
     pred = bst.predict(dtest)
     if type == "inference":
         pred_labels = np.where(pred > best_threshold, 1, 0)
