@@ -1,10 +1,10 @@
-from . import init
-from .relation_features import make_data_from
-from .utils import make_csv_from_json,table_column_filter
-from .train import test
+import init
+from relation_features import make_data_from
+from utils import make_csv_from_json,table_column_filter
+from train import test
 import numpy as np
 import pandas as pd
-import xgboost as xgb
+import lightgbm as lgb
 import os
 import argparse
 import time
@@ -86,7 +86,7 @@ def schema_matching(table1_pth,table2_pth,threshold=None,strategy="many-to-many"
     preds = []
     pred_labels_list = []
     for i in range(len(os.listdir(model_pth))//2):
-        bst = xgb.Booster({'nthread': 4})  # init model
+        bst = lgb.Booster({'nthread': 4})  # init model
         bst.load_model(model_pth+"/"+str(i)+".model")
         if threshold is not None:
             best_threshold = float(threshold)

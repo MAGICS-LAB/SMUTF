@@ -1,6 +1,6 @@
-from . import init
-from .self_features import make_self_features_from
-from .utils import table_column_filter
+import init
+from self_features import make_self_features_from
+from utils import table_column_filter
 import pandas as pd
 import numpy as np
 from numpy.linalg import norm

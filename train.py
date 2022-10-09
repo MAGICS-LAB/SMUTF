@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import os
-import xgboost as xgb
 import lightgbm as lgb
 import datetime
 from sklearn.metrics import confusion_matrix
@@ -19,7 +18,7 @@ feature_names = ["is_url","is_numeric","is_date","is_string","numeric:mean", "nu
 params = {
         'max_depth': 4,
         'eta': 0.1,
-        'objective': 'binary:logistic',
+        'objective': 'regression',
         'eval_metric': 'logloss',
     }
 
@@ -31,7 +30,7 @@ def train(train_features,train_labels,num_round):
     best_threshold = 0
     for threshold in range(100):
         threshold = threshold / 100
-        pred_labels = np.where(bst.predict(dtrain) > threshold, 1, 0)
+        pred_labels = np.where(bst.predict(train_features) > threshold, 1, 0)
         f1 = f1_score(train_labels, pred_labels,average="binary",pos_label=1)
         if f1 > best_f1:
             best_f1 = f1
@@ -40,7 +39,7 @@ def train(train_features,train_labels,num_round):
 
 def test(bst,best_threshold, test_features, test_labels, type="evaluation"):
     dtest = lgb.Dataset(test_features, label=test_labels)
-    pred = bst.predict(dtest)
+    pred = bst.predict(test_features)
     if type == "inference":
         pred_labels = np.where(pred > best_threshold, 1, 0)
         return pred,pred_labels
@@ -85,8 +84,9 @@ def preprocess(path):
     return train_features, train_labels, test_features, test_labels
 
 def get_feature_importances(bst):
-    importance = bst.get_fscore()
-    importance = [(im,feature_names[int(im[0].replace("f",""))]) for im in importance.items()]
+    importance = bst.feature_importance()
+    importance_name = bst.feature_name()
+    importance = [((im,importance[importance_name.index(im)]),feature_names[int(im.replace("Column_",""))]) for im in importance_name]
     importance = sorted(importance, key=lambda x: x[0][1], reverse=True)
     return importance
 

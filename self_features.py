@@ -1,4 +1,4 @@
-from . import init
+import init
 import pandas as pd
 import numpy as np
 import re
