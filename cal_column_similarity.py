@@ -86,8 +86,8 @@ def schema_matching(table1_pth,table2_pth,threshold=None,strategy="many-to-many"
     preds = []
     pred_labels_list = []
     for i in range(len(os.listdir(model_pth))//2):
-        bst = lgb.Booster({'nthread': 4})  # init model
-        bst.load_model(model_pth+"/"+str(i)+".model")
+        bst = lgb.Booster(model_file=model_pth+"/"+str(i)+".model")  # init model
+        #bst.load_model(model_pth+"/"+str(i)+".model")
         if threshold is not None:
             best_threshold = float(threshold)
         else:
