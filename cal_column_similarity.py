@@ -103,11 +103,13 @@ def schema_matching(table1_pth,table2_pth,threshold=None,strategy="many-to-many"
 
 if __name__ == '__main__':
     start = time.time()
-    args.path = args.path.rstrip("/")
-    df_pred,df_pred_labels,predicted_pairs = schema_matching(args.path+"/Table1.csv",args.path+"/Table2.csv",threshold=args.threshold,strategy=args.strategy,model_pth=args.model)
-    df_pred.to_csv(args.path+"/similarity_matrix_value.csv",index=True)
-    df_pred_labels.to_csv(args.path+"/similarity_matrix_label.csv",index=True)
+    paths = args.path.rstrip("/")
+    for name in os.listdir(paths):
+        path_folder = os.path.join(paths, name)
+        df_pred,df_pred_labels,predicted_pairs = schema_matching(path_folder+"/gurufocus.csv",path_folder+"/table2.csv",threshold=args.threshold,strategy=args.strategy,model_pth=args.model)
+        df_pred.to_csv(path_folder+"/similarity_matrix_value.csv",index=True)
+        df_pred_labels.to_csv(path_folder+"/similarity_matrix_label.csv",index=True)
 
-    for pair_tuple in predicted_pairs:
-        print(pair_tuple)
-    print("schema_matching|Time taken:",time.time()-start)
+        for pair_tuple in predicted_pairs:
+            print(pair_tuple)
+        print("schema_matching|Time taken:",time.time()-start)
