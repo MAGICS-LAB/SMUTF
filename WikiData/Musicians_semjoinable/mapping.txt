@@ -1,0 +1,8 @@
+<musician, musicianID>
+<musicianLabel, musicianName>
+<genderLabel, genderType>
+<cityLabel, city>
+<fatherLabel, fatherName>
+<motherLabel, motherName>
+<partner, spouse>
+<genreLabel, kind>

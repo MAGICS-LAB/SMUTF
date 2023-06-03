@@ -1,0 +1,6 @@
+<musician, musicianID>
+<birthDate, birthDate>
+<familyNameLabel, familyName>
+<givenNameLabel, forename>
+<numberOfChildren, NChildren>
+<websiteLabel, webpage>

@@ -1,0 +1,6 @@
+,row,tconst,averageRating,numVotes
+rownum,1.0,0.0,0.0,0.0
+userId,0.0,0.0,0.0,0.0
+movieId,0.0,0.0,0.0,0.0
+rating,0.0,0.0,1.0,0.0
+timestamp,0.0,0.0,0.0,0.0

@@ -1,0 +1,5 @@
+,row,tconst,titleType,primaryTitle,originalTitle,isAdult,startYear,endYear,runtimeMinutes,genres
+rownum,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+movieId,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+title,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0
+genres,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
