@@ -1,6 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/schema-matching.svg)](https://pypi.org/project/schema-matching/) 
 
-# Python Schema Matching by LightGBM and Sentence-Transformers
+# SMUTF: Schema Matching Using Generative Tags and Hybrid Features
 
 A python tool using LightGBM and sentence-transformers to perform schema matching task on tables. Support multi-language column names and instances matching and can be used without column names. Both csv and json file type are supported.
 
