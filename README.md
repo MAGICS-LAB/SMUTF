@@ -1,7 +1,11 @@
 [![PyPI version](https://badge.fury.io/py/schema-matching.svg)](https://pypi.org/project/schema-matching/) 
 
 # SMUTF: Schema Matching Using Generative Tags and Hybrid Features
+This is the code of the paper [SMUTF](https://arxiv.org/abs/2402.01685). You can use this repo to reproduce the results in the paper.
 
+
+
+## Abstract
 We introduce SMUTF, a unique approach for large-scale tabular data schema matching (SM), which assumes that supervised learning does not affect performance in open-domain tasks, thereby enabling effective cross-domain matching. This system uniquely combines rule-based feature engineering, pre-trained language models, and generative large language models. In an innovative adaptation inspired by the Humanitarian Exchange Language, we deploy 'generative tags' for each data column, enhancing the effectiveness of SM. SMUTF exhibits extensive versatility, working seamlessly with any pre-existing pre-trained embeddings, classification methods, and generative models. Recognizing the lack of extensive, publicly available datasets for SM, we have created and open-sourced the HDXSM dataset from the public humanitarian data. We believe this to be the most exhaustive SM dataset currently available. In evaluations across various public datasets and the novel HDXSM dataset, SMUTF demonstrated exceptional performance, surpassing existing state-of-the-art models in terms of accuracy and efficiency, and} improving the F1 score by 11.84% and the AUC of ROC by 5.08%.
 
 
@@ -125,4 +129,18 @@ Data: https://github.com/fireindark707/Schema_Matching_XGboost/tree/main/Test%20
 
 **F1 score: 0.889**
 
+## Citation
+If you find our work useful, please consider citing our paper:
+
+```
+@misc{zhang2024smutfschemamatchingusing,
+      title={SMUTF: Schema Matching Using Generative Tags and Hybrid Features}, 
+      author={Yu Zhang and Mei Di and Haozheng Luo and Chenwei Xu and Richard Tzong-Han Tsai},
+      year={2024},
+      eprint={2402.01685},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2402.01685}, 
+}
+```
 
